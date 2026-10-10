@@ -3,14 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="src/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>nexus</title>
   </head>
 
   <body>
-
     <header id="head">
-
       <h1>NEXUS - All in ONE</h1>
 
       <nav id="top-bar" aria-label="Display settings">
@@ -21,39 +20,35 @@
           Settings(preferebly an icon later)
         </button>
       </nav>
-
     </header>
 
     <main>
+      <section class="greeting" aria-label="Welcome">
+        <p id="greeting-text">Welcome.</p>
+        <p id="current-date">Today is October 10.</p>
+        <!--- this oct 10 part wil be a different font than the rest and bold -->
+      </section>
 
-        <section class="greeting" aria-label="Welcome">
-          <p id="greeting-text">Welcome.</p>
-          <p id="current-date">Today is October 10.</p>
-          <!--- this oct 10 part wil be a different font than the rest and bold -->
-        </section>
+      <section id="clock" aria-label="Current Time">
+        <p id="time-lebel">
+          Time remaining today : 10 hours 2 minutes 5 seconds
+        </p>
+        <!-- this will be as per clock added later on-->
+        <figure><!--Insert a working circular 24 hour clock here--></figure>
+      </section>
 
-        <section id="clock" aria-label="Current Time">
-          <p id="time-lebel">Time remaining today : 10 hours 2 minutes 5 seconds</p>
-          <!-- this will be as per clock added later on-->
-          <figure><!--Insert a working circular 24 hour clock here--></figure>
-        </section>
+      <section class="shortcuts" aria-labelledby="shortcuts-title">
+        <h3 id="shortcuts-title">Your shortcuts</h3>
+        <div id="shortcut-list"></div>
+      </section>
 
-        <section class="shortcuts" aria-labelledby="shortcuts-title">
-          <h3 id="shortcuts-title">Your shortcuts</h3>
-          <div id="shortcut-list">
-
-          </div>
-        </section>
-
-        <section class="workspace" aria-labelledby="workspace-title">
-          <h3 id="workspace-title">Your Workspace</h3>
-          <div id="daily-task"></div>
-          <div id="focus-timer"></div>
-        </section>
-
+      <section class="workspace" aria-labelledby="workspace-title">
+        <h3 id="workspace-title">Your Workspace</h3>
+        <div id="daily-task"></div>
+        <div id="focus-timer"></div>
+      </section>
     </main>
 
     <script type="module" src="/src/main.js"></script>
-
   </body>
 </html>

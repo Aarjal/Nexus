@@ -1,7 +1,3 @@
-/* --------------------------------------------------------------------------
-   Foundations
-   -------------------------------------------------------------------------- */
-
 :root {
   color-scheme: dark;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -58,10 +54,6 @@ button:focus-visible,
   outline-offset: 3px;
 }
 
-/* --------------------------------------------------------------------------
-   Header
-   -------------------------------------------------------------------------- */
-
 #head {
   display: flex;
   align-items: center;
@@ -106,10 +98,6 @@ button:focus-visible,
   background: var(--surface);
 }
 
-/* --------------------------------------------------------------------------
-   Main layout and greeting
-   -------------------------------------------------------------------------- */
-
 main {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
@@ -145,10 +133,6 @@ main {
   font-weight: 460;
   letter-spacing: 0.01em;
 }
-
-/* --------------------------------------------------------------------------
-   Clock reserve
-   -------------------------------------------------------------------------- */
 
 #clock {
   position: relative;
@@ -209,10 +193,6 @@ main {
   text-transform: uppercase;
 }
 
-/* --------------------------------------------------------------------------
-   Content sections
-   -------------------------------------------------------------------------- */
-
 .shortcuts,
 .workspace {
   min-width: 0;
@@ -267,12 +247,8 @@ main {
   background: var(--surface-raised);
   transform: translateY(-1px);
 }
-
-/* --------------------------------------------------------------------------
-   Responsive adjustments
-   -------------------------------------------------------------------------- */
-
-/* Keep the complete dashboard in view on standard desktop-height screens. */
+  
+/* to Keep the complete dashboard in view on standard desktop-height screens. */
 @media (min-width: 781px) and (min-height: 500px) {
   #head {
     min-height: 72px;
