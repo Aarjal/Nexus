@@ -1,0 +1,395 @@
+/* --------------------------------------------------------------------------
+   Foundations
+   -------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --canvas: #171217;
+  --canvas-deep: #110d12;
+  --surface: #211a22;
+  --surface-raised: #29212b;
+  --surface-muted: #1c161e;
+  --line: rgba(237, 225, 241, 0.11);
+  --line-strong: rgba(204, 170, 220, 0.28);
+  --text: #f2ebf2;
+  --text-muted: #aea2b0;
+  --text-faint: #7d727f;
+  --accent: #bf8ce1;
+  --accent-soft: rgba(191, 140, 225, 0.14);
+  --focus: #e0b7fa;
+  --shadow: 0 20px 60px rgba(7, 4, 8, 0.24);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--canvas-deep);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 82% -8%, rgba(107, 61, 119, 0.23), transparent 31rem),
+    radial-gradient(circle at 8% 78%, rgba(90, 56, 89, 0.12), transparent 26rem),
+    var(--canvas);
+}
+
+button {
+  font: inherit;
+}
+
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+
+#head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1180px, calc(100% - 48px));
+  min-height: 88px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--line);
+}
+
+#head h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 720;
+  letter-spacing: 0.16em;
+  line-height: 1;
+}
+
+#top-bar {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#top-bar button {
+  min-height: 34px;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: var(--text-muted);
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+#top-bar button:hover {
+  border-color: var(--line);
+  color: var(--text);
+  background: var(--surface);
+}
+
+/* --------------------------------------------------------------------------
+   Main layout and greeting
+   -------------------------------------------------------------------------- */
+
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+  grid-template-areas:
+    "greeting clock"
+    "shortcuts workspace";
+  gap: 22px 28px;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: clamp(3.5rem, 10vh, 7.5rem) 0 4.5rem;
+}
+
+.greeting {
+  grid-area: greeting;
+  align-self: center;
+  padding: 1rem 0 2.25rem;
+}
+
+#greeting-text {
+  max-width: 700px;
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(3.1rem, 6.5vw, 5.9rem);
+  font-weight: 620;
+  letter-spacing: -0.07em;
+  line-height: 0.96;
+}
+
+#current-date {
+  margin: 1.4rem 0 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 460;
+  letter-spacing: 0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   Clock reserve
+   -------------------------------------------------------------------------- */
+
+#clock {
+  position: relative;
+  display: grid;
+  grid-area: clock;
+  justify-items: center;
+  align-content: center;
+  min-height: 345px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface-muted);
+  box-shadow: var(--shadow);
+}
+
+#clock::before {
+  position: absolute;
+  width: min(238px, 68%);
+  aspect-ratio: 1;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  content: "";
+}
+
+#clock::after {
+  position: absolute;
+  width: min(202px, 58%);
+  aspect-ratio: 1;
+  border: 1px dashed rgba(211, 173, 230, 0.28);
+  border-radius: 50%;
+  content: "";
+}
+
+#clock figure {
+  z-index: 1;
+  width: min(164px, 48%);
+  aspect-ratio: 1;
+  margin: 0;
+  border: 5px solid rgba(191, 140, 225, 0.78);
+  border-top-color: rgba(191, 140, 225, 0.16);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+#time-lebel {
+  position: absolute;
+  z-index: 2;
+  bottom: 1.3rem;
+  width: 100%;
+  margin: 0;
+  padding: 0 1rem;
+  color: var(--text-muted);
+  font-size: 0.71rem;
+  font-weight: 590;
+  letter-spacing: 0.055em;
+  line-height: 1.35;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Content sections
+   -------------------------------------------------------------------------- */
+
+.shortcuts,
+.workspace {
+  min-width: 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.shortcuts {
+  grid-area: shortcuts;
+}
+
+.workspace {
+  grid-area: workspace;
+}
+
+.shortcuts h3,
+.workspace h3 {
+  margin: 0 0 1rem;
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+#shortcut-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-height: 92px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.012);
+}
+
+#daily-task,
+#focus-timer {
+  min-height: 92px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+#daily-task + #focus-timer {
+  margin-top: 0.75rem;
+}
+
+#daily-task:hover,
+#focus-timer:hover {
+  border-color: var(--line-strong);
+  background: var(--surface-raised);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive adjustments
+   -------------------------------------------------------------------------- */
+
+/* Keep the complete dashboard in view on standard desktop-height screens. */
+@media (min-width: 781px) and (min-height: 500px) {
+  #head {
+    min-height: 72px;
+  }
+
+  main {
+    min-height: calc(100dvh - 72px);
+    grid-template-rows: clamp(250px, 34vh, 320px) auto;
+    align-content: start;
+    gap: 16px 28px;
+    padding: clamp(1.75rem, 4vh, 3rem) 0 clamp(1.5rem, 3vh, 2.5rem);
+  }
+
+  .greeting {
+    padding: 0.5rem 0 1rem;
+  }
+
+  #clock {
+    min-height: 0;
+    height: 100%;
+  }
+
+  #clock figure {
+    width: min(150px, 48%);
+  }
+
+  #time-lebel {
+    bottom: 1rem;
+  }
+
+  .shortcuts,
+  .workspace {
+    padding-top: 0.9rem;
+  }
+
+  .shortcuts h3,
+  .workspace h3 {
+    margin-bottom: 0.7rem;
+  }
+
+  #shortcut-list {
+    min-height: 72px;
+  }
+
+  #daily-task,
+  #focus-timer {
+    min-height: 66px;
+  }
+
+  #daily-task + #focus-timer {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 780px) {
+  #head,
+  main {
+    width: min(100% - 36px, 620px);
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "greeting"
+      "clock"
+      "shortcuts"
+      "workspace";
+    padding-top: clamp(3rem, 8vh, 5rem);
+  }
+
+  .greeting {
+    padding-bottom: 0.5rem;
+  }
+
+  #clock {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  #head {
+    min-height: 72px;
+  }
+
+  #head h1 {
+    font-size: 0.71rem;
+    letter-spacing: 0.11em;
+  }
+
+  #top-bar {
+    gap: 0.1rem;
+  }
+
+  #top-bar button {
+    padding-inline: 0.35rem;
+    font-size: 0.66rem;
+  }
+
+  #greeting-text {
+    font-size: clamp(2.8rem, 16vw, 4rem);
+  }
+
+  #current-date {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+
+  #shortcut-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
