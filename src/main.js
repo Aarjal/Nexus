@@ -1,4 +1,5 @@
 import './style.css'
+import { createIcons, Moon, Settings } from 'lucide'
 
 const intervalKey = '__nexusClockInterval__'
 
@@ -72,4 +73,10 @@ if (greetingText || currentDate || digitalTime || timeRemaining) {
   updateDashboardTime()
   window[intervalKey] = window.setInterval(updateDashboardTime, 1000)
 }
+createIcons({
+  icons: {
+    Moon,
+    Settings,
+  },
+})
 
