@@ -92,6 +92,11 @@ button:focus-visible,
   transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
 }
 
+#top-bar button svg {
+  width: 19px;
+  height: 19px;
+}
+
 #top-bar button:hover {
   border-color: var(--line);
   color: var(--text);
