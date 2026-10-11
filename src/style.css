@@ -167,6 +167,8 @@ main {
 }
 
 #clock figure {
+  display: grid;
+  place-items: center;
   z-index: 1;
   width: min(164px, 48%);
   aspect-ratio: 1;
@@ -175,6 +177,16 @@ main {
   border-top-color: rgba(191, 140, 225, 0.16);
   border-radius: 50%;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+#digital-time {
+  color: var(--text);
+  font-size: clamp(1.35rem, 3.1vw, 2.15rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 #time-lebel {
