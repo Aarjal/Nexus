@@ -248,6 +248,11 @@ main {
   width: 2px;
   height: 39%;
   background: var(--accent);
+  transition: none;
+  will-change: transform;
+}
+.second-hand{
+  transition: none;
 }
 
 .clock-center{

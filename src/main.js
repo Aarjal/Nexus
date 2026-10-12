@@ -25,10 +25,10 @@ const timeFormatter = new Intl.DateTimeFormat(undefined, {
 })
 
 const getGreeting = (hour) => {
-  if (hour >= 5 && hour < 12) return 'Good morning.'
-  if (hour < 17) return 'Good afternoon.'
-  if (hour < 21) return 'Good evening.'
-  return 'Good night.'
+  if (hour >= 5 && hour < 12) return 'Good Morning.'
+  if (hour < 17) return 'Good Afternoon.'
+  if (hour < 21) return 'Good Evening.'
+  return 'Good Night.'
 }
 
 const formatRemainingTime = (milliseconds) => {
@@ -42,6 +42,25 @@ const formatRemainingTime = (milliseconds) => {
 
 const updateDashboardTime = () => {
   const now = new Date()
+  const seconds = now.getSeconds()
+  const minutes = now.getMinutes()
+  const hours = now.getHours() % 12
+
+  const hourHand = document.querySelector('.hour-hand')
+  const minuteHand = document.querySelector('.minute-hand')
+  const secondHand = document.querySelector('.second-hand')
+
+  if (hourHand) {
+  hourHand.style.transform= `translate(-50%) rotate(${hours * 30 + minutes * 0.5}deg)`
+  }
+
+  if (minuteHand) {
+  minuteHand.style.transform= `translate(-50%) rotate(${minutes * 6 + seconds * 0.1}deg)`
+  }
+
+  if (secondHand) {
+  secondHand.style.transform= `translate(-50%) rotate(${seconds * 6}deg)`
+  }
   const nextMidnight = new Date(now)
 
   nextMidnight.setHours(24, 0, 0, 0)
