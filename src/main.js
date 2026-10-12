@@ -9,7 +9,6 @@ if (typeof window[intervalKey] !== 'undefined') {
 
 const greetingText = document.querySelector('#greeting-text')
 const currentDate = document.querySelector('#current-date')
-const digitalTime = document.querySelector('#digital-time')
 const timeRemaining = document.querySelector('#time-lebel')
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
@@ -73,16 +72,6 @@ const updateDashboardTime = () => {
     currentDate.textContent = dateFormatter.format(now)
   }
 
-  if (digitalTime) {
-    digitalTime.textContent = timeFormatter.format(now)
-    digitalTime.dateTime = [
-      now.getFullYear(),
-      String(now.getMonth() + 1).padStart(2, '0'),
-      String(now.getDate()).padStart(2, '0'),
-    ].join('-') +
-      `T${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`
-  }
-
   if (timeRemaining) {
     timeRemaining.textContent = `Time remaining today: ${formatRemainingTime(nextMidnight - now)}`
   }
@@ -97,5 +86,46 @@ createIcons({
     Moon,
     Settings,
   },
+})
+const addShortcutButton = document.querySelector('#add-shortcut')
+const cancelShortcutButton = document.querySelector('#cancel-shortcut')
+const shortcutNameInput = document.querySelector('#shortcut-name')
+const shortcutForm = document.querySelector('#shortcut-form')
+
+addShortcutButton.addEventListener('click', () =>{
+  shortcutForm.hidden = false
+  shortcutNameInput.focus()
+})
+
+cancelShortcutButton.addEventListener('click', ()=>{
+  shortcutForm.reset()
+  shortcutForm.hidden = true
+})
+
+
+const shortcutList = document.querySelector('#shortcut-list')
+const emptyState = shortcutList.querySelector('.empty-state')
+
+shortcutForm.addEventListener('submit', (event) => {
+  event.preventDefault()
+
+  const name = shortcutNameInput.value.trim()
+  const urlInput = document.querySelector('#shortcut-url')
+  const url = urlInput.value.trim()
+
+  if (!name || !url) return
+
+  const shortcut = document.createElement('a')
+  shortcut.className = 'shortcut-item'
+  shortcut.href = url
+  shortcut.target = '_blank'
+  shortcut.rel = 'noopener noreferrer'
+  shortcut.textContent = name
+
+  shortcutList.insertBefore(shortcut, addShortcutButton)
+
+  emptyState.hidden = true
+  shortcutForm.reset()
+  shortcutForm.hidden = true
 })
 

@@ -53,8 +53,19 @@
       <section class="shortcuts" aria-labelledby="shortcuts-title">
         <h3 id="shortcuts-title">Your shortcuts</h3>
         <div id="shortcut-list">
+          <button id="add-shortcut" type="button" aria-label="Add Shortcut">+</button>
           <p class="empty-state">Your shortcuts will appear here.</p>
         </div>
+        <form id="shortcut-form" hidden>
+          <label for="shortcut-name">Website name</label>
+          <input id="shortcut-name" name="name" type="text" placeholder="Github" required />
+          
+          <label for="shortcut-url">Website URL</label>
+          <input id="shortcut-url" name="url" type="url" placeholder="https://github.com" required />
+
+          <button type="submit">Add shortcut</button>
+          <button id="cancel-shortcut" type="button">Cancel</button>
+        </form>
       </section>
 
       <section class="workspace" aria-labelledby="workspace-title">
