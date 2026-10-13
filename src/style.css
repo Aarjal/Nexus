@@ -337,9 +337,10 @@ main {
 #focus-timer {
   min-height: 92px;
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 4px;
   background: var(--surface);
   transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+  padding: 10px;
 }
 
 #daily-task + #focus-timer {
@@ -364,18 +365,77 @@ main {
   border-radius: 50%;
   background: transparent;
   color: rgb(193, 239, 253);
-  font-size: 2.2rem;
+  font-size: 2.1rem;
   cursor: pointer;
   transition: background-color 160ms ease, transform 160ms ease;
-  line-height: 0.5;
-  padding: 0; 
+  line-height: 0.5; 
 }
+
 #add-shortcut:hover{
   background: var(--sruface);
   transform: scale(1.05);
   background: rgba(26, 21, 43, 0.74);
 }
-  
+
+#daily-task h4{
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+#task-form{
+  display:flex;
+  gap:0.5rem;
+  margin-bottom: 1rem;
+}
+
+#task-input{
+  min-width: 0;
+  flex: 1;
+  padding: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--canvas);
+  color: var(--text);
+
+}
+
+#task-form button{
+  padding: 0.7rem 0.9rem;
+  border:0;
+  border-radius: 18px;
+  background: rgb(139, 79, 79);
+  color: var(--canvas);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#task-list{
+  display: grid;
+  gap: 0.65rem;
+  padding:0;
+  margin:0;
+  list-style: none;
+}
+
+#task-list li{
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  overflow-wrap: anywhere;
+  color: var(--text);
+}
+
+#task-list input[type="checkbox"] {
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+#task-list input[ type="checkbox"]:checked + label {
+  color: var(--text-muted);
+  text-decoration: line-through;
+
+}
+
 /* to Keep the complete dashboard in view on standard desktop-height screens. */
 @media (min-width: 781px) and (min-height: 500px) {
   #head {
@@ -430,6 +490,7 @@ main {
     margin-top: 0.5rem;
   }
 }
+
 
 @media (max-width: 780px) {
   #head,

@@ -71,10 +71,20 @@
       <section class="workspace" aria-labelledby="workspace-title">
         <h3 id="workspace-title">Your Workspace</h3>
         <div id="daily-task">
-          <p class="empty-state">Your daily tasks will appear here.</p>
+          <h4>Today's focus</h4>
+          <form id="task-form">
+            <input id="task-input" type="text" placeholder="Get it done.." aria-label="New task" required/>
+            <button type="submit">Add task</button>
+          </form>
+          <ul id="task-list"></ul>
         </div>
         <div id="focus-timer">
-          <p class="empty-state">Your focus timer will appear here.</p>
+          <h4>Focus timer</h4>
+          <p id="timer-display" role="timer" aria-live="off">25:00</p>
+          <div id="timer-controls">
+          <button id="timer-start" type="button">Start</button>
+          <button id="timer-reset" type="button">Reset</button>
+          </div>
         </div>
       </section>
     </main>
