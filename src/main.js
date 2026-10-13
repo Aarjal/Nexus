@@ -154,3 +154,54 @@ taskInput.value =''
 taskInput.focus()
 
 })
+
+const timerDisplay = document.querySelector('#timer-display')
+const timerStartButton = document.querySelector('#timer-start')
+const timerResetButton = document.querySelector('#timer-reset')
+
+const focusDuration = 5 * 60;
+let timeLeft = focusDuration
+let timerInterval = null
+
+const renderTimer = () => {
+  const minutes = Math.floor(timeLeft/60)
+  const seconds = timeLeft % 60
+
+  timerDisplay.textContent = 
+  `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
+}
+
+timerStartButton.addEventListener('click', () =>{
+  if(timerInterval !== null) {
+    clearInterval(timerInterval)
+    timerInterval = null
+    timerStartButton.textContent = 'Resume'
+    return
+  }
+
+  if(timeLeft <= 0) return
+
+  timerStartButton.textContent = 'Pause'
+
+  timerInterval = setInterval(() => {
+    timeLeft--
+    renderTimer()
+
+    if(timeLeft <=0){
+      clearInterval(timerInterval)
+      timerInterval = null
+      timerStartButton.textContent = 'Start'
+      alert('Good Boy :)')
+    }
+  }, 1000)
+})
+
+timerResetButton.addEventListener('click', () =>{
+  clearInterval(timerInterval)
+  timerInterval = null
+  timeLeft = focusDuration
+  renderTimer()
+  timerStartButton.textContent = 'Start'
+
+})
+renderTimer()
