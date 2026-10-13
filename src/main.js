@@ -205,3 +205,24 @@ timerResetButton.addEventListener('click', () =>{
 
 })
 renderTimer()
+
+
+const settingsButton = document.querySelector('#settings-button')
+const settingsMenu = document.querySelector('#settings-menu')
+
+settingsButton.addEventListener('click', () => {
+  const isOpen = !settingsMenu.hidden
+
+  settingsMenu.hidden = isOpen
+  settingsButton.setAttribute('aria-expanded', String(!isOpen))
+})
+
+document.addEventListener('click', (event) => {
+  if (
+    !event.target.closest('.settings-wrapper') &&
+    !settingsMenu.hidden
+  ) {
+    settingsMenu.hidden = true
+    settingsButton.setAttribute('aria-expanded', 'false')
+  }
+})

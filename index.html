@@ -14,9 +14,16 @@
         <button id="theme-toggle" type="button" aria-label="Toggle-theme">
           <i data-lucide="moon"></i>
         </button>
-        <button id="settings-button" type="button">
-          <i data-lucide="settings"></i>
-        </button>
+        <div class="settings-wrapper">
+          <button id="settings-button" type="button" aria-label="Settings" title="Settings">
+            <i data-lucide="settings"></i>
+          </button>
+          <div id="settings-menu" hidden>
+            <button id="theme-menu-button" type="button">Toggle Theme</button>
+            <button id="clock-format-button" type="button">Use 24-hour clock</button>
+            <button id="about-button" type="button">About Nexus</button>
+          </div>
+        </div>
       </nav>
     </header>
 
