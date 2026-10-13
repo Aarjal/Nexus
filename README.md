@@ -1,6 +1,5 @@
 # NEXUS 
-
-### All in ONE.
+#### All in ONE.
 
 ## About
 
@@ -29,13 +28,8 @@ https://aarjal.github.io/Nexus/
 - JavaScript
 - Vite
 
-## Getting Started
 
-### Prerequisites
-
-[List the software or tools needed to run the project.]
-
-### Installation
+## Installation
 
 1. To clone the repository:
    ```bash
