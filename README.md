@@ -19,7 +19,8 @@ https://aarjal.github.io/Nexus/
 
 ## Screenshots
 
-[Add screenshots of your project here.]
+![alt text](image.png)
+![alt text](image-1.png)
 
 ## Tech Stack
 
