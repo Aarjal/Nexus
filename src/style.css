@@ -251,9 +251,6 @@ main {
   transition: none;
   will-change: transform;
 }
-.second-hand{
-  transition: none;
-}
 
 .clock-center{
   position: absolute;
