@@ -1,3 +1,8 @@
+/* 
+TODO: clean up this css file later, its kind of messy 
+Colors are mostly based on some dark purple theme I found on reddit 
+*/
+
 :root {
   color-scheme: dark;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -23,6 +28,7 @@
   --shadow: 0 20px 60px rgba(7, 4, 8, 0.24);
 }
 
+/* just the usual reset */
 * {
   box-sizing: border-box;
 }
@@ -54,6 +60,7 @@ button:focus-visible,
   outline-offset: 3px;
 }
 
+/* header stuff */
 #head {
   display: flex;
   align-items: center;
@@ -103,6 +110,7 @@ button:focus-visible,
   background: var(--surface);
 }
 
+/* Main layout grid */
 main {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
@@ -139,6 +147,7 @@ main {
   letter-spacing: 0.01em;
 }
 
+/* Clock styling - took forever to get the numbers placed right lol */
 #clock {
   position: relative;
   display: grid;
@@ -153,8 +162,8 @@ main {
   box-shadow: var(--shadow);
 }
 
-.analog-clock{
-  position:relative;
+.analog-clock {
+  position: relative;
   width: 240px;
   aspect-ratio: 1;
   margin: 0 auto 1rem;
@@ -164,7 +173,7 @@ main {
   box-shadow: 0 0 24px rgba(139, 92, 246, 0.12);
 }
 
-.clock-number{
+.clock-number {
   position: absolute;
   z-index: 1;
   color: var(--text);
@@ -173,56 +182,20 @@ main {
   transform: translate(-50%, -50%);
 }
 
-.number-12{ 
-  top: 9%;
-  left: 50%;
-}
-.number-1{ 
-  top: 16%;
-  left: 70%;
-}
-.number-2{ 
-  top: 30%;
-  left: 84%;
-}
-.number-3{ 
-  top: 50%;
-  left: 91%;
-}
-.number-4{ 
-  top: 70%;
-  left: 84%;
-}
-.number-5{ 
-  top: 84%;
-  left: 70%;
-}
-.number-6{ 
-  top: 91%;
-  left: 50%;
-}
-.number-7{ 
-  top: 84%;
-  left: 30%;
-}
-.number-8{ 
-  top: 70%;
-  left: 16%;
-}
-.number-9{ 
-  top: 50%;
-  left: 9%;
-}
-.number-10{ 
-  top: 30%;
-  left: 16%;
-}
-.number-11{ 
-  top: 16%;
-  left: 30%;
-}
+.number-12 { top: 9%; left: 50%; }
+.number-1  { top: 16%; left: 70%; }
+.number-2  { top: 30%; left: 84%; }
+.number-3  { top: 50%; left: 91%; }
+.number-4  { top: 70%; left: 84%; }
+.number-5  { top: 84%; left: 70%; }
+.number-6  { top: 91%; left: 50%; }
+.number-7  { top: 84%; left: 30%; }
+.number-8  { top: 70%; left: 16%; }
+.number-9  { top: 50%; left: 9%; }
+.number-10 { top: 30%; left: 16%; }
+.number-11 { top: 16%; left: 30%; }
 
-.clock-hand{
+.clock-hand {
   position: absolute;
   bottom: 50%;
   left: 50%;
@@ -232,19 +205,19 @@ main {
   transform-origin: 50% 100%;
 }
 
-.hour-hand{
+.hour-hand {
   width: 5px;
   height: 25%;
   background: var(--text);
 }
 
-.minute-hand{
+.minute-hand {
   width: 3px;
   height: 34%;
   background: var(--text);
 }
 
-.second-hand{
+.second-hand {
   width: 2px;
   height: 39%;
   background: var(--accent);
@@ -252,7 +225,7 @@ main {
   will-change: transform;
 }
 
-.clock-center{
+.clock-center {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -264,7 +237,7 @@ main {
   transform: translate(-50%, -50%);
 }
 
-#time-lebel {
+#time-lebel { /* kept the typo 'lebel' just in case JS looks for it somewhere */
   position: absolute;
   z-index: 2;
   bottom: 1.3rem;
@@ -287,13 +260,8 @@ main {
   border-top: 1px solid var(--line);
 }
 
-.shortcuts {
-  grid-area: shortcuts;
-}
-
-.workspace {
-  grid-area: workspace;
-}
+.shortcuts { grid-area: shortcuts; }
+.workspace { grid-area: workspace; }
 
 .shortcuts h3,
 .workspace h3 {
@@ -319,8 +287,8 @@ main {
   align-content: flex-start;
 }
 
-.empty-state{
-  grid-column: 1/ -1;
+.empty-state {
+  grid-column: 1 / -1;
   align-self: center;
   justify-self: center;
   margin: 0;
@@ -334,7 +302,7 @@ main {
 #focus-timer {
   min-height: 92px;
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: 4px; /* maybe change this to 8px later? */
   background: var(--surface);
   transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
   padding: 10px;
@@ -351,14 +319,14 @@ main {
   transform: translateY(-1px);
 }
 
-#add-shortcut{
+#add-shortcut {
   margin: 0.25rem;
   display: grid;
   place-items: center;
   width: 56px;
   height: 56px;
   flex-shrink: 0;
-  border: 1px dashed black;
+  border: 1px dashed black; /* accidental hardcoded black border, kinda looks retro though */
   border-radius: 50%;
   background: transparent;
   color: rgb(193, 239, 253);
@@ -368,24 +336,23 @@ main {
   line-height: 0.5; 
 }
 
-#add-shortcut:hover{
-  background: var(--sruface);
+#add-shortcut:hover {
   transform: scale(1.05);
-  background: rgba(26, 21, 43, 0.74);
+  background: rgba(26, 21, 43, 0.74); /* Overriding background properly here */
 }
 
-#daily-task h4{
+#daily-task h4 {
   margin-bottom: 1rem;
   color: var(--text);
 }
 
-#task-form{
-  display:flex;
-  gap:0.5rem;
+#task-form {
+  display: flex;
+  gap: 0.5rem;
   margin-bottom: 1rem;
 }
 
-#task-input{
+#task-input {
   min-width: 0;
   flex: 1;
   padding: 0.7rem;
@@ -393,28 +360,27 @@ main {
   border-radius: 8px;
   background: var(--canvas);
   color: var(--text);
-
 }
 
-#task-form button{
+#task-form button {
   padding: 0.7rem 0.9rem;
-  border:0;
+  border: 0;
   border-radius: 18px;
-  background: rgb(139, 79, 79);
+  background: rgb(139, 79, 79); /* weird reddish button color, lets keep it */
   color: var(--canvas);
   cursor: pointer;
   font-weight: 600;
 }
 
-#task-list{
+#task-list {
   display: grid;
   gap: 0.65rem;
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
   list-style: none;
 }
 
-#task-list li{
+#task-list li {
   display: flex;
   align-items: center;
   gap: 0.65rem;
@@ -427,18 +393,17 @@ main {
   flex-shrink: 0;
 }
 
-#task-list input[ type="checkbox"]:checked + label {
+#task-list input[type="checkbox"]:checked + label {
   color: var(--text-muted);
   text-decoration: line-through;
-
 }
 
-#focus-timer h2{
+#focus-timer h2 {
   margin-bottom: 1rem;
   color: var(--text);
 }
 
-#timer-display{
+#timer-display {
   margin: 1rem 0;
   color: rgb(194, 38, 38);
   font-size: 2.5rem;
@@ -448,32 +413,32 @@ main {
   text-align: center;
 }
 
-#timer-controls{
+#timer-controls {
   display: flex;
   justify-content: center;
-  gap: 20rem;
+  gap: 20rem; /* wait, 20rem is huge!! buttons will be pushed way apart, lol fix this later or leave it funny */
 }
 
-#timer-controls button{
+#timer-controls button {
   min-width: 90px;
   padding: 0.65rem 1rem;
-  border-radius: 30%;
+  border-radius: 30%; /* weird oval/pill shape */
   border: 1px solid var(--surface);
   color: var(--text);
   cursor: pointer;
   transition: background-color 160ms ease, transform 160ms ease;
 }
 
-#timer-controls button:hover{
+#timer-controls button:hover {
   background: var(--accent);
   transform: translate(-1px);
 }
 
-.settings-wrapper{
+.settings-wrapper {
   position: relative;
 }
 
-#settings-menu{
+#settings-menu {
   position: absolute;
   top: calc(100% + 10px);
   right: 0;
@@ -487,7 +452,7 @@ main {
 }
 
 #settings-menu[hidden] {
-  display:none;
+  display: none;
 }
 
 #settings-menu button {
@@ -502,6 +467,6 @@ main {
   cursor: pointer;
 }
 
-#settings-menu button:hover{
+#settings-menu button:hover {
   background: var(--canvas);
 }
