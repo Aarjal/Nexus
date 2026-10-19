@@ -19,9 +19,9 @@ https://aarjal.github.io/Nexus/
 
 ## Screenshots
 
-![alt text](<img width="1351" height="615" alt="image" src="https://github.com/user-attachments/assets/f7bc2cbb-1e84-4775-8717-c65239518669" />
+![alt text](<img width="1351" height="615" alt="image" src="public/img-1.jpg" />
 )
-![alt text](<img width="1349" height="494" alt="image" src="https://github.com/user-attachments/assets/9b594e7f-1591-496a-bc2c-2915cd1c7369" />
+![alt text](<img width="1349" height="494" alt="image" src="public/img-2.jpg" />
 )
 
 ## Tech Stack
