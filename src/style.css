@@ -1,5 +1,5 @@
 /* 
-TODO: clean up this css file later, its kind of messy 
+clean up this mess later
 Colors are mostly based on some dark purple theme I found on reddit 
 */
 
@@ -39,16 +39,21 @@ html {
   background: var(--canvas-deep);
 }
 
+
 body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  color: var(--text);
-  background:
-    radial-gradient(circle at 82% -8%, rgba(107, 61, 119, 0.23), transparent 31rem),
-    radial-gradient(circle at 8% 78%, rgba(90, 56, 89, 0.12), transparent 26rem),
-    var(--canvas);
+  color: #f2ebf2;
+  background-color: #171217;
+  background-image:
+    linear-gradient(rgba(17, 13, 18, 0.72), rgba(17, 13, 18, 0.82)),
+    url('/Nexus/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
+
 
 button {
   font: inherit;
@@ -147,7 +152,6 @@ main {
   letter-spacing: 0.01em;
 }
 
-/* Clock styling - took forever to get the numbers placed right lol */
 #clock {
   position: relative;
   display: grid;
@@ -155,11 +159,6 @@ main {
   justify-items: center;
   align-content: center;
   min-height: 345px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: var(--surface-muted);
-  box-shadow: var(--shadow);
 }
 
 .analog-clock {
@@ -237,7 +236,7 @@ main {
   transform: translate(-50%, -50%);
 }
 
-#time-lebel { /* kept the typo 'lebel' just in case JS looks for it somewhere */
+#time-lebel { 
   position: absolute;
   z-index: 2;
   bottom: 1.3rem;
@@ -280,11 +279,7 @@ main {
   align-items: flex-start;
   gap: 1rem;
   min-height: 92px;
-  border: 1px dashed var(--line-strong);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.012);
   padding: 1rem;
-  align-content: flex-start;
 }
 
 .empty-state {
