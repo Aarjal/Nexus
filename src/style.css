@@ -326,8 +326,12 @@ main {
   padding: 0.7rem;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--canvas);
+  background: transparent;
   color: var(--text);
+}
+
+#task-input::placeholder {
+  color: var(--focus);
 }
 
 #task-form button {
@@ -439,4 +443,40 @@ main {
 
 #settings-menu button:hover {
   background: var(--canvas);
+}
+
+/* //responsiveness */
+@media (max-width: 700px) {
+  #head {
+    width: calc(100% - 32px);
+    gap: 1rem;
+  }
+
+  #top-bar {
+    gap: 0.2rem;
+  }
+
+  main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "greeting"
+      "clock"
+      "shortcuts"
+      "workspace";
+    width: calc(100% - 32px);
+    gap: 1.5rem;
+    padding: 3rem 0;
+  }
+
+  .greeting {
+    padding: 1rem 0;
+  }
+
+  #greeting-text {
+    font-size: clamp(2.8rem, 11vw, 4.5rem);
+  }
+
+  #clock {
+    min-height: 300px;
+  }
 }
