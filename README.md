@@ -19,10 +19,8 @@ https://aarjal.github.io/Nexus/
 
 ## Screenshots
 
-![alt text](<img width="1351" height="615" alt="image" src="public/img-1.jpg" />
-)
-![alt text](<img width="1349" height="494" alt="image" src="public/img-2.jpg" />
-)
+![alt text]<img width="1351" height="615" alt="image" src="public/img-1.jpg" />
+![alt text]<img width="1349" height="494" alt="image" src="public/img-2.jpg" />
 
 ## Tech Stack
 
